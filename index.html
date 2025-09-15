@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAR FOLIO - R. Rathish Portfolio</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+            --bg-light: #f8f9fa;
+            --bg-dark: #212529;
+            --text-light: #f8f9fa;
+            --text-dark: #212529;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+        }
+
+        .navbar {
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: #fff;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+        }
+        
+        .nav-link.active, .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        #home {
+            background-color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        #home h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--bg-dark);
+        }
+        
+        #home .lead {
+            font-size: 1.25rem;
+            color: var(--secondary-color);
+            max-width: 600px;
+            margin: 20px auto 30px;
+        }
+
+        .social-icons a {
+            font-size: 1.5rem;
+            color: var(--bg-dark);
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding: 0;
+            list-style: none;
+        }
+        
+        .timeline:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 40px;
+            width: 2px;
+            margin-left: -1.5px;
+            background-color: #e9ecef;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+        
+        .timeline-icon {
+            position: absolute;
+            left: 40px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            margin-left: -20px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .timeline-content {
+            margin-left: 70px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .timeline-content h4 {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+        
+        /* Projects Section */
+        .project-card {
+            background-color: #fff;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .project-card .card-body {
+            padding: 25px;
+        }
+        
+        .project-card .card-title {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .project-tags span {
+            display: inline-block;
+            background-color: var(--bg-light);
+            padding: 5px 10px;
+            margin: 3px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+        }
+
+        /* Skills Section */
+        #skills {
+            background-color: #fff;
+        }
+        
+        .skill-item {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .skill-item i {
+            font-size: 3rem;
+            color: var(--primary-color);
+        }
+        
+        .skill-item h5 {
+            margin-top: 15px;
+            font-weight: 500;
+        }
+        
+        /* Contact Section */
+        .contact-info {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        
+        .contact-info i {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            padding: 20px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#navbar">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">RAR FOLIO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#work-experience">Work Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#leadership">Leadership</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>R. RATHISH</h1>
+                    <p class="lead">An Information Technology student with a passion for problem-solving and data-driven solutions.</p>
+                    <div class="social-icons mt-4">
+                        <a href="https://linkedin.com/in/rathishone" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="https://github.com/rathishone" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8 text-center">
+                    <p class="lead">I am an excited and driven Information Technology undergraduate at Rajalakshmi Engineering College. With a solid foundation in both web development and data analytics, I am eager to apply my leadership and analytical skills to solve complex problems. I thrive in forward-thinking teams and aim to grow into a key contributor in a domain that serves the organization's purpose and pushes technological boundaries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="row">
+                <div class="col-md-10 mx-auto">
+                    <ul class="timeline">
+                        <!-- Rajalakshmi Engineering College -->
+                        <li class="timeline-item">
+                            <div class="timeline-icon"><i class="bi bi-mortarboard-fill"></i></div>
+                            <div class="timeline-content">
+                                <h4>B.Tech, Information Technology</h4>
+                                <h5>Rajalakshmi Engineering College</h5>
+                                <p class="timeline-date">Sep 2022 - May 2026</p>
+                                <p>GPA: 8.27/10</p>
+                            </div>
+                        </li>
+                        <!-- Velammal Vidyalaya -->
+                        <li class="timeline-item">
+                            <div class="timeline-icon"><i class="bi bi-mortarboard-fill"></i></div>
+                            <div class="timeline-content">
+                                <h4>CBSE - Class XII</h4>
+                                <h5>Velammal Vidyalaya</h5>
+                                <p class="timeline-date">Jun 2020 - Apr 2022</p>
+                                <p>Percentage: 78.4%</p>
+                            </div>
+                        </li>
+                        <!-- SBOA School and Junior College -->
+                        <li class="timeline-item">
+                            <div class="timeline-icon"><i class="bi bi-mortarboard-fill"></i></div>
+                            <div class="timeline-content">
+                                <h4>CBSE - Class X</h4>
+                                <h5>SBOA School and Junior College</h5>
+                                <p class="timeline-date">Jun 2008 - Apr 2020</p>
+                                <p>Percentage: 77.4%</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Experience Section -->
+    <section id="work-experience">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="row">
+                <div class="col-md-10 mx-auto">
+                    <ul class="timeline">
+                        <!-- VLS Global Services -->
+                        <li class="timeline-item">
+                            <div class="timeline-icon"><i class="bi bi-briefcase-fill"></i></div>
+                            <div class="timeline-content">
+                                <h4>Database Administration Intern</h4>
+                                <h5>VLS Global Services Pvt Ltd</h5>
+                                <p class="timeline-date">Jun 2025 - Jul 2025</p>
+                                <p>Worked for 2 months with the DBA team, where I designed and built interactive Power BI dashboards to visualize performance metrics, supporting data-driven decision making.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Experience Section -->
+    <section id="leadership">
+        <div class="container">
+            <h2 class="section-title">Leadership Experience</h2>
+            <div class="row">
+                <div class="col-md-10 mx-auto">
+                    <ul class="timeline">
+                        <!-- Enactus REC -->
+                        <li class="timeline-item">
+                            <div class="timeline-icon"><i class="bi bi-people-fill"></i></div>
+                            <div class="timeline-content">
+                                <h4>Head of Operations</h4>
+                                <h5>Enactus REC</h5>
+                                <p class="timeline-date">Sep 2024 - Aug 2025</p>
+                                <p>Oversaw logistics and supply chain management for projects, ensuring efficient and streamlined operations for the team.</p>
+                            </div>
+                        </li>
+                        <!-- Dept of IT -->
+                        <li class="timeline-item">
+                            <div class="timeline-icon"><i class="bi bi-palette-fill"></i></div>
+                            <div class="timeline-content">
+                                <h4>Co-Lead - Design Team</h4>
+                                <h5>Department of Information Technology, REC</h5>
+                                <p class="timeline-date">Apr 2024 - Apr 2025</p>
+                                <p>Led design initiatives for the department club, including designing the official Pilot logo and creating engaging content for Instagram posts.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Heliova - E-commerce Website</h5>
+                            <p class="card-text">A client-side web application functioning as a data-driven logistics entity. The project aims to maintain profitability by implementing innovative strategies like hedging and loyalty programs.</p>
+                            <div class="project-tags mt-3">
+                                <span>HTML</span> <span>CSS</span> <span>JavaScript</span> <span>Bootstrap</span> <span>Python</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Urban Climate Vulnerability Analysis</h5>
+                            <p class="card-text">Final year project focused on a spatio-temporal analysis of urban climate vulnerability. Comparatively analyzes Chennai, Mumbai, and Kolkata from a current baseline to the 2050s, generating geospatial maps to pinpoint high-risk zones.</p>
+                             <div class="project-tags mt-3">
+                                <span>Data Analysis</span> <span>Python</span> <span>Geospatial Mapping</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Personal Portfolio Tracker</h5>
+                            <p class="card-text">A comprehensive, client-side application to track and analyze investments across equities, ETFs, and mutual funds. Features detailed ledgers, daily performance tracking, and data visualization with Chart.js. All data is securely stored locally.</p>
+                             <div class="project-tags mt-3">
+                                <span>HTML</span> <span>CSS</span> <span>JavaScript</span> <span>Bootstrap</span> <span>Chart.js</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills & Certifications Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Certifications</h2>
+            <div class="mb-5">
+                <h4 class="text-center mb-4">Technologies & Languages</h4>
+                <div class="row">
+                    <!-- Web Dev -->
+                    <div class="col-md-4 skill-item">
+                        <i class="bi bi-code-slash"></i>
+                        <h5>Web Development</h5>
+                        <p>HTML, CSS, JavaScript, Bootstrap, Figma, Python</p>
+                    </div>
+                    <!-- Data Analytics -->
+                    <div class="col-md-4 skill-item">
+                        <i class="bi bi-bar-chart-line-fill"></i>
+                        <h5>Data Analytics</h5>
+                        <p>PowerBI, SQL, Python, Excel, NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn</p>
+                    </div>
+                    <!-- 3D & Design -->
+                    <div class="col-md-4 skill-item">
+                        <i class="bi bi-brush-fill"></i>
+                        <h5>3D Modeling & Design</h5>
+                        <p>Blender, Figma, Canva, Adobe Express</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="my-5">
+
+            <div>
+                <h4 class="text-center mb-4">Certifications</h4>
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item text-center border-0 bg-transparent">Oracle Academy: Database Programming with SQL</li>
+                            <li class="list-group-item text-center border-0 bg-transparent">SSI: SQL and Python</li>
+                            <li class="list-group-item text-center border-0 bg-transparent">NPTEL: Human Computer Interaction</li>
+                            <li class="list-group-item text-center border-0 bg-transparent">TANSAM (TIDCO-SIEMENS): Immersive Experience in AR/VR</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <div class="contact-info">
+                        <p class="lead">Feel free to reach out. I'm always open to discussing new projects, creative ideas, or opportunities to be part of an amazing team.</p>
+                        <div class="d-flex align-items-center justify-content-center my-3">
+                            <i class="bi bi-envelope-fill me-3"></i>
+                            <a href="mailto:rathishone@gmail.com" class="text-decoration-none text-dark">rathishone@gmail.com</a>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-center my-3">
+                             <i class="bi bi-telephone-fill me-3"></i>
+                             <a href="tel:+919884030132" class="text-decoration-none text-dark">+91 988403 0132</a>
+                        </div>
+                        <div class="social-icons mt-4">
+                            <a href="https://linkedin.com/in/rathishone" target="_blank" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                            <a href="https://github.com/rathishone" target="_blank" title="GitHub"><i class="bi bi-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 R. Rathish. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Activate scrollspy
+        const scrollSpy = new bootstrap.ScrollSpy(document.body, {
+            target: '#navbar'
+        });
+        
+        // Close navbar on link click for mobile
+        const navLinks = document.querySelectorAll('.nav-link');
+        const menuToggle = document.getElementById('navbarNav');
+        const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle: false});
+        navLinks.forEach((l) => {
+            l.addEventListener('click', () => { 
+                if (menuToggle.classList.contains('show')) {
+                    bsCollapse.toggle()
+                }
+            })
+        })
+    </script>
+</body>
+</html>
+
+
+
